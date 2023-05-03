@@ -40,6 +40,18 @@ class Item:
         else:
             raise Exception("Длина наименования товара превышает 10 символов")
 
+    def __repr__(self):
+        """
+        Магический метод, который выводит форматированную строку с данными об экземпляре класса и его полями
+        """
+        return f"{self.__class__.__name__}('{self.name}', {self.price}, {self.quantity})"
+
+    def __str__(self):
+        """
+        Магический метод, который выводит конкретное поле в экземпляре класса
+        """
+        return f'{self.name}'
+
     @classmethod
     def instantiate_from_csv(cls):
         """
