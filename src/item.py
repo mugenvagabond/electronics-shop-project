@@ -1,4 +1,5 @@
 import csv
+import os.path
 
 
 class Item:
@@ -58,7 +59,7 @@ class Item:
         Класс-метод, инициализирующий экземпляры класса Item данными из файла src/items.csv
         Возвращает строку с данными о количестве записей о товарах
         """
-        path = r"C:\Users\Cyber\PycharmProjects\electronics-shop-project\src\items.csv"
+        path = os.path.join("items.csv")
 
         with open(path, newline='') as file:
             reader = csv.DictReader(file)
