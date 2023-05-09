@@ -8,6 +8,7 @@ class Item:
     """
     pay_rate = 1.0
     all = []
+    path = os.path.join("items.csv")
 
     def __init__(self, name: str, price: float, quantity: int) -> None:
         """
@@ -20,7 +21,6 @@ class Item:
         self.__name = name
         self.price = price
         self.quantity = quantity
-        # self.all.append(self)
 
     @property
     def name(self):
@@ -51,7 +51,16 @@ class Item:
         """
         Магический метод, который выводит конкретное поле в экземпляре класса
         """
-        return f'{self.name}'
+        return f"{self.name}"
+
+    def __add__(self, other):
+        """
+        Магический метод, который складывает поля двух классов и выполняет  проверки, чтобы нельзя было
+        сложить Phone или Item с экземплярами не Phone или Item классов.
+        """
+        if isinstance(other, self.__class__):
+            return self.quantity + other.quantity
+        return None
 
     @classmethod
     def instantiate_from_csv(cls):
