@@ -1,5 +1,4 @@
 from src.keyboard import KeyBoard
-from src.item import Item
 import pytest
 
 
