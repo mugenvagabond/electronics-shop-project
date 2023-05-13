@@ -7,9 +7,16 @@ class LanguageMixin:
 
     @property
     def language(self):
+        """
+        Сеттер для поля language
+        """
         return self.__language
 
     def change_lang(self):
+        """
+        Метод для изменения раскладки клавиатуры.
+        По-умолчанию задан язык клавиатуры - 'EN'
+        """
         if self.__language == 'EN':
             self.__language = 'RU'
         elif self.__language == 'RU':
@@ -20,5 +27,10 @@ class LanguageMixin:
 
 
 class KeyBoard(Item, LanguageMixin):
+    """
+    Класс, для товара - клавиатуры, который наследует поля класса Item.
+    У класса LanguageMixin есть свой атрибут language и метод для изменения языка (раскладки клавиатуры), которые
+    добавляются в цепочку наследования класса KeyBoard.
+    """
     def __init__(self, name, price, quantity):
         super().__init__(name, price, quantity)
