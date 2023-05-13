@@ -58,8 +58,8 @@ class Item:
         Магический метод, который складывает поля двух классов и выполняет  проверки, чтобы нельзя было
         сложить Phone или Item с экземплярами не Phone или Item классов.
         """
-        if isinstance(other, self.__class__):
-            return self.quantity + other.quantity
+        if isinstance(other, Item):
+            return other.quantity + self.quantity
         return None
 
     @classmethod
